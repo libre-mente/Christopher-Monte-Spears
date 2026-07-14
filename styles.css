@@ -12,11 +12,16 @@
     --border-subtle: #262626;
 }
 
-/* --- Global Reset --- */
+/* --- Global Reset & Smartphone Fix --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Stops horizontal scrolling entirely */
 }
 
 html {
@@ -29,57 +34,71 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     padding-bottom: 40px;
+    -webkit-text-size-adjust: 100%;
 }
 
 /* --- Header & Branding --- */
 .main-header {
     text-align: center;
-    padding: 60px 20px 30px 20px;
+    padding: 40px 15px 25px 15px;
     background: linear-gradient(to bottom, #11091c 0%, var(--bg-base) 100%);
     border-bottom: 1px solid var(--border-subtle);
+    width: 100%;
 }
 
 .logo-container {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .logo-graphic {
     margin-bottom: 15px;
 }
 
+.logo-graphic svg {
+    max-width: 100%;
+    height: auto;
+}
+
 .main-header h1 {
     font-family: 'Cinzel', serif;
-    font-size: 2.8rem;
+    font-size: 2.2rem; /* Adjusted for cleaner scaling across devices */
     font-weight: 400;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     color: var(--accent-gold);
     text-transform: uppercase;
     text-shadow: 0 0 15px rgba(93, 38, 138, 0.4);
+    line-height: 1.2;
+    word-wrap: break-word;
 }
 
 .main-header .tagline {
     font-family: 'Cinzel', serif;
-    font-size: 1.1rem;
-    letter-spacing: 6px;
+    font-size: 0.95rem;
+    letter-spacing: 4px;
     color: var(--text-secondary);
     text-transform: uppercase;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 /* --- Navigation --- */
 .nav-menu {
-    margin-top: 25px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 15px;
 }
 
 .nav-menu a {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0 15px;
+    letter-spacing: 1.5px;
     transition: color 0.3s ease;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 .nav-menu a:hover {
@@ -90,11 +109,12 @@ body {
 /* --- Layout Grid --- */
 .dashboard-container {
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 30px auto;
+    padding: 0 15px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 30px;
+    gap: 25px;
+    width: 100%;
 }
 
 /* --- Profile Sidebar (Left) --- */
@@ -102,14 +122,15 @@ body {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 8px;
-    padding: 30px;
+    padding: 25px;
     height: fit-content;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 100%;
 }
 
 .image-placeholder {
     width: 100%;
-    height: 380px;
+    height: 340px;
     background: linear-gradient(135deg, #161616 0%, #221230 100%);
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 6px;
@@ -138,7 +159,7 @@ body {
 .profile-sidebar h2 {
     font-family: 'Cinzel', serif;
     color: var(--accent-gold);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 15px;
     letter-spacing: 2px;
     border-bottom: 1px solid var(--accent-purple);
@@ -148,7 +169,7 @@ body {
 .profile-sidebar p {
     color: var(--text-secondary);
     font-size: 0.95rem;
-    line-height: 1.8;
+    line-height: 1.7;
     margin-bottom: 15px;
 }
 .profile-sidebar p:last-child {
@@ -159,21 +180,23 @@ body {
 .content-modules {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 25px;
+    width: 100%;
 }
 
 .module {
     background-color: var(--bg-surface);
     border: 1px solid var(--border-subtle);
     border-radius: 8px;
-    padding: 30px;
+    padding: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    width: 100%;
 }
 
 .module h2 {
     font-family: 'Cinzel', serif;
     color: var(--accent-gold);
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin-bottom: 20px;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -182,24 +205,26 @@ body {
 /* --- Lessons Styling --- */
 .lessons-badge {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     background-color: var(--bg-module);
-    padding: 12px 20px;
+    padding: 12px 15px;
     border-radius: 6px;
     border: 1px dashed rgba(212, 175, 55, 0.2);
     margin-bottom: 20px;
+    gap: 10px;
 }
 
 .lessons-badge .rate {
     font-family: 'Cinzel', serif;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--accent-gold);
 }
 
 .lessons-badge .availability {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-secondary);
@@ -210,7 +235,7 @@ body {
 }
 
 .credentials {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: #ffffff;
     margin-bottom: 12px;
 }
@@ -222,12 +247,20 @@ body {
     color: var(--accent-gold);
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 4px;
     border: 1px solid var(--accent-gold);
     transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+@media (min-width: 480px) {
+    .email-btn-secondary {
+        width: auto;
+    }
 }
 
 .email-btn-secondary:hover {
@@ -246,11 +279,12 @@ body {
 .track-item {
     background-color: var(--bg-module);
     border: 1px solid rgba(93, 38, 138, 0.15);
-    padding: 18px 20px;
+    padding: 15px 18px;
     border-radius: 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -259,12 +293,20 @@ body {
     border-color: rgba(212, 175, 55, 0.3);
 }
 
+.track-info {
+    flex: 1;
+    min-width: 0; /* Prevents text overflow */
+}
+
 .track-title {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: #ffffff;
     letter-spacing: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .track-meta {
@@ -283,6 +325,7 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    flex-shrink: 0;
     transition: all 0.3s ease;
 }
 
@@ -303,17 +346,17 @@ body {
 
 .feather-icon {
     position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 1.5rem;
-    opacity: 0.2;
+    right: 15px;
+    top: 15px;
+    font-size: 1.3rem;
+    opacity: 0.15;
 }
 
 .poem-snippet {
     font-style: italic;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #dfdfdf;
-    line-height: 2;
+    line-height: 1.9;
     margin-bottom: 15px;
 }
 
@@ -338,7 +381,8 @@ body {
 .event-list li {
     padding: 12px 0;
     border-bottom: 1px solid var(--border-subtle);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }
 
 .event-list li:last-child {
@@ -348,30 +392,51 @@ body {
 .event-list li span {
     color: var(--accent-gold);
     font-weight: 600;
+    display: block;
+    margin-bottom: 2px;
+}
+
+@media (min-width: 480px) {
+    .event-list li span {
+        display: inline;
+        margin-bottom: 0;
+    }
 }
 
 /* --- Booking Module --- */
 .booking-lead {
     color: var(--text-secondary);
     margin-bottom: 20px;
+    font-size: 0.95rem;
 }
 
 .booking-box {
     text-align: center;
-    padding: 10px 0;
+    padding: 5px 0;
+    width: 100%;
 }
 
 .email-btn {
-    display: inline-block;
-    padding: 14px 30px;
+    display: block;
+    padding: 14px 20px;
     background: linear-gradient(135deg, var(--accent-purple) 0%, #441a66 100%);
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     border-radius: 4px;
     border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
+    font-size: 0.85rem;
+    word-break: break-all; /* Prevents long email strings from breaking layout */
+}
+
+@media (min-width: 520px) {
+    .email-btn {
+        display: inline-block;
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+    }
 }
 
 .email-btn:hover {
@@ -383,9 +448,10 @@ body {
 /* --- Footer --- */
 .site-footer {
     text-align: center;
-    margin-top: 60px;
-    padding-top: 40px;
+    margin-top: 50px;
+    padding: 30px 15px 10px 15px;
     border-top: 1px solid var(--border-subtle);
+    width: 100%;
 }
 
 .copyright {
@@ -394,18 +460,28 @@ body {
     letter-spacing: 1px;
 }
 
-/* --- Mobile Responsiveness --- */
+/* --- Mobile Responsiveness Adjustments --- */
 @media (max-width: 900px) {
     .dashboard-container {
         grid-template-columns: 1fr;
+        margin: 15px auto;
+        gap: 20px;
     }
     
+    .main-header {
+        padding: 35px 15px 20px 15px;
+    }
+
     .main-header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
     
-    .nav-menu a {
-        display: inline-block;
-        margin: 5px 10px;
+    .main-header .tagline {
+        font-size: 0.85rem;
+        letter-spacing: 3px;
+    }
+    
+    .image-placeholder {
+        height: 280px;
     }
 }
