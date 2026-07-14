@@ -1,0 +1,411 @@
+/* --- Design Core & Variables --- */
+:root {
+    --bg-base: #0a0a0a;
+    --bg-surface: #121212;
+    --bg-module: #1a1a1a;
+    --accent-gold: #d4af37;
+    --accent-gold-dim: #aa8a2c;
+    --accent-purple: #5d268a;
+    --accent-purple-light: #7b37b3;
+    --text-primary: #e5e5e5;
+    --text-secondary: #a0a0a0;
+    --border-subtle: #262626;
+}
+
+/* --- Global Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding-bottom: 40px;
+}
+
+/* --- Header & Branding --- */
+.main-header {
+    text-align: center;
+    padding: 60px 20px 30px 20px;
+    background: linear-gradient(to bottom, #11091c 0%, var(--bg-base) 100%);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.logo-container {
+    margin-bottom: 30px;
+}
+
+.logo-graphic {
+    margin-bottom: 15px;
+}
+
+.main-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(93, 38, 138, 0.4);
+}
+
+.main-header .tagline {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    letter-spacing: 6px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+/* --- Navigation --- */
+.nav-menu {
+    margin-top: 25px;
+}
+
+.nav-menu a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+    font-weight: 600;
+}
+
+.nav-menu a:hover {
+    color: var(--accent-gold);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
+/* --- Layout Grid --- */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+}
+
+/* --- Profile Sidebar (Left) --- */
+.profile-sidebar {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 30px;
+    height: fit-content;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 380px;
+    background: linear-gradient(135deg, #161616 0%, #221230 100%);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 6px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.inner-glow {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    box-shadow: inset 0 0 40px rgba(93, 38, 138, 0.3);
+    pointer-events: none;
+}
+
+.photo-label {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-gold-dim);
+}
+
+.profile-sidebar h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--accent-purple);
+    padding-bottom: 8px;
+}
+
+.profile-sidebar p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+.profile-sidebar p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Content Modules (Right) --- */
+.content-modules {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.module {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.module h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* --- Lessons Styling --- */
+.lessons-badge {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-module);
+    padding: 12px 20px;
+    border-radius: 6px;
+    border: 1px dashed rgba(212, 175, 55, 0.2);
+    margin-bottom: 20px;
+}
+
+.lessons-badge .rate {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+}
+
+.lessons-badge .availability {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    background-color: rgba(93, 38, 138, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--accent-purple);
+}
+
+.credentials {
+    font-size: 1.05rem;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.email-btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    border: 1px solid var(--accent-gold);
+    transition: all 0.3s ease;
+}
+
+.email-btn-secondary:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-base);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* --- Audio Module Items --- */
+.track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.track-item {
+    background-color: var(--bg-module);
+    border: 1px solid rgba(93, 38, 138, 0.15);
+    padding: 18px 20px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.track-item:hover {
+    transform: translateX(4px);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.track-title {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.track-meta {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.play-btn {
+    background-color: transparent;
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-btn:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-base);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+/* --- Writing Module --- */
+.writing-preview {
+    background-color: var(--bg-module);
+    border-left: 3px solid var(--accent-purple);
+    padding: 20px;
+    border-radius: 0 6px 6px 0;
+    position: relative;
+}
+
+.feather-icon {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 1.5rem;
+    opacity: 0.2;
+}
+
+.poem-snippet {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #dfdfdf;
+    line-height: 2;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.read-more:hover {
+    color: #ffffff;
+}
+
+/* --- Events Module --- */
+.event-list {
+    list-style: none;
+}
+
+.event-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.95rem;
+}
+
+.event-list li:last-child {
+    border-bottom: none;
+}
+
+.event-list li span {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* --- Booking Module --- */
+.booking-lead {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.booking-box {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.email-btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, var(--accent-purple) 0%, #441a66 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.email-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(93, 38, 138, 0.4);
+    border-color: var(--accent-gold);
+}
+
+/* --- Footer --- */
+.site-footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: #555555;
+    letter-spacing: 1px;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 900px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-menu a {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+}
