@@ -21,7 +21,7 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* Stops horizontal scrolling entirely */
+    overflow-x: hidden;
 }
 
 html {
@@ -37,65 +37,43 @@ body {
     -webkit-text-size-adjust: 100%;
 }
 
-/* --- Header & Branding --- */
+/* --- Header & Branding Image Adjustment --- */
 .main-header {
     text-align: center;
-    padding: 40px 15px 25px 15px;
+    padding: 30px 15px 20px 15px;
     background: linear-gradient(to bottom, #11091c 0%, var(--bg-base) 100%);
     border-bottom: 1px solid var(--border-subtle);
     width: 100%;
 }
 
-.logo-container {
-    margin-bottom: 20px;
+.logo-image-container {
+    max-width: 750px; /* Perfect desktop layout limit */
+    margin: 0 auto 10px auto;
+    padding: 0 10px;
+}
+
+.brand-logo-img {
     width: 100%;
-}
-
-.logo-graphic {
-    margin-bottom: 15px;
-}
-
-.logo-graphic svg {
-    max-width: 100%;
     height: auto;
-}
-
-.main-header h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 2.2rem; /* Adjusted for cleaner scaling across devices */
-    font-weight: 400;
-    letter-spacing: 2px;
-    color: var(--accent-gold);
-    text-transform: uppercase;
-    text-shadow: 0 0 15px rgba(93, 38, 138, 0.4);
-    line-height: 1.2;
-    word-wrap: break-word;
-}
-
-.main-header .tagline {
-    font-family: 'Cinzel', serif;
-    font-size: 0.95rem;
-    letter-spacing: 4px;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    margin-top: 12px;
+    display: block;
+    object-fit: contain;
 }
 
 /* --- Navigation --- */
 .nav-menu {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px 15px;
+    gap: 12px 20px;
 }
 
 .nav-menu a {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     transition: color 0.3s ease;
     font-weight: 600;
     white-space: nowrap;
@@ -295,7 +273,7 @@ body {
 
 .track-info {
     flex: 1;
-    min-width: 0; /* Prevents text overflow */
+    min-width: 0;
 }
 
 .track-title {
@@ -428,7 +406,7 @@ body {
     border: 1px solid rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
     font-size: 0.85rem;
-    word-break: break-all; /* Prevents long email strings from breaking layout */
+    word-break: break-all;
 }
 
 @media (min-width: 520px) {
@@ -469,16 +447,7 @@ body {
     }
     
     .main-header {
-        padding: 35px 15px 20px 15px;
-    }
-
-    .main-header h1 {
-        font-size: 1.75rem;
-    }
-    
-    .main-header .tagline {
-        font-size: 0.85rem;
-        letter-spacing: 3px;
+        padding: 20px 10px;
     }
     
     .image-placeholder {
