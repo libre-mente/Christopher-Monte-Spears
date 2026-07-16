@@ -107,17 +107,12 @@ body {
     width: 100%;
 }
 
-/* 
-   RECONSTRUCTED: Profile Image Container
-   We place a height on this container and set the image to fill it. 
-   By hiding the overflow and positioning the image at the top, 
-   the bottom 20% is naturally cut off by the container's border.
-*/
+/* Profile Image Container */
 .profile-image-container {
     position: relative;
     width: 100%;
     max-width: 240px; 
-    aspect-ratio: 1 / 1; /* Sets a perfect square shape (cutting off the bottom of portrait photos) */
+    aspect-ratio: 1 / 1; /* Sets a perfect square shape */
     margin: 0 auto 25px auto;
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 6px;
@@ -127,9 +122,9 @@ body {
 
 .profile-image {
     width: 100%;
-    height: 125%; /* Expanded so that the 20% cut-off matches original proportion scale */
+    height: 125%; /* Expanded proportion scale */
     object-fit: cover;
-    object-position: top center; /* Ensures the head/face is prioritized at the top */
+    object-position: top center;
     display: block;
     transition: transform 0.5s ease;
 }
@@ -141,7 +136,7 @@ body {
 .inner-glow {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    box-shadow: inset 0 0 35px rgba(93, 38, 138, 0.45); /* Elegant deep purple atmospheric tint overlay */
+    box-shadow: inset 0 0 35px rgba(93, 38, 138, 0.45); /* Elegant deep purple overlay */
     pointer-events: none;
     z-index: 2;
 }
@@ -462,14 +457,18 @@ body {
         padding: 20px 10px;
     }
     
-    /* On mobile, ensures the container scales naturally with auto-height */
     .profile-image-container {
         max-width: 220px;
         height: auto;
         margin-bottom: 20px;
     }
 }
-/* --- Social Links Module Styling (Optimized Sidebar Section) --- */
+
+/* ==========================================
+   UPDATED / ADDED PRODUCTION SECTIONS
+   ========================================== */
+
+/* --- Social Links Module Styling (Sidebar Hook) --- */
 .social-links-sidebar {
     margin-top: 30px;
     padding-top: 25px;
@@ -510,7 +509,7 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* --- Brand Specific Hover States --- */
+/* Brand Specific Hover States */
 .social-icon-btn.yt:hover {
     color: #ff0000;
     border-color: rgba(255, 0, 0, 0.4);
@@ -529,12 +528,10 @@ body {
     box-shadow: 0 0 12px rgba(225, 48, 108, 0.3);
 }
 
-/* Bounce effect on icon hover */
 .social-icon-btn:hover svg {
     transform: scale(1.15);
 }
 
-/* Ensure easy alignment on mobile screens */
 @media (max-width: 900px) {
     .social-links-sidebar {
         text-align: center;
@@ -542,4 +539,68 @@ body {
     .social-icon-grid {
         justify-content: center;
     }
+}
+
+/* --- Video Performances Gallery Grid --- */
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr 1fr; /* Responsive side-by-side grid */
+    }
+}
+
+.video-card {
+    background-color: var(--bg-module);
+    border: 1px solid rgba(93, 38, 138, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Perfect widescreen 16:9 aspect ratios across mobile & wide screens */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    background-color: #000;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-details {
+    padding: 15px;
+}
+
+.video-details h3 {
+    font-family: 'Cinzel', serif;
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+.video-details p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
 }
