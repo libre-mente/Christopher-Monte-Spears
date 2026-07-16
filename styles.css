@@ -107,11 +107,18 @@ body {
     width: 100%;
 }
 
-/* Elegant, smaller rectangular container that centers perfectly */
+/* 
+   RECONSTRUCTED: Profile Image Container
+   Made with Flexbox properties. It now acts as an auto-sizing viewport 
+   that fully encloses the image without strict cropped-height parameters.
+*/
 .profile-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 240px; 
-    height: 240px; 
+    height: auto; 
     margin: 0 auto 25px auto;
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 6px;
@@ -122,9 +129,8 @@ body {
 
 .profile-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 18%; /* Focuses directly on the face */
+    height: auto;
+    object-fit: contain; /* Displays the image in full size and prevents cropping */
     display: block;
     transition: transform 0.5s ease;
 }
@@ -457,10 +463,10 @@ body {
         padding: 20px 10px;
     }
     
-    /* On mobile, ensures the container doesn't stretch to full-width */
+    /* On mobile, ensures the container scales naturally with auto-height */
     .profile-image-container {
         max-width: 220px;
-        height: 220px;
+        height: auto;
         margin-bottom: 20px;
     }
 }
