@@ -106,32 +106,37 @@ body {
     width: 100%;
 }
 
-.image-placeholder {
+.profile-image-container {
     width: 100%;
     height: 340px;
-    background: linear-gradient(135deg, #161616 0%, #221230 100%);
+    background: #111;
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 6px;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: hidden;
     margin-bottom: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%; /* Centers the face/upper third beautifully */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.profile-image-container:hover .profile-image {
+    transform: scale(1.03); /* Soft, artistic zoom on hover */
 }
 
 .inner-glow {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    box-shadow: inset 0 0 40px rgba(93, 38, 138, 0.3);
+    box-shadow: inset 0 0 45px rgba(93, 38, 138, 0.45); /* Vignette overlay over your photo */
     pointer-events: none;
-}
-
-.photo-label {
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--accent-gold-dim);
+    z-index: 2;
 }
 
 .profile-sidebar h2 {
@@ -450,7 +455,7 @@ body {
         padding: 20px 10px;
     }
     
-    .image-placeholder {
+    .profile-image-container {
         height: 280px;
     }
 }
