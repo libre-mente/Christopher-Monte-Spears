@@ -115,7 +115,7 @@ body {
 .profile-image-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* Aligned to the top to keep the focal point of the crop correct */
     width: 100%;
     max-width: 240px; 
     height: auto; 
@@ -130,9 +130,11 @@ body {
 .profile-image {
     width: 100%;
     height: auto;
-    object-fit: contain; /* Displays the image in full size and prevents cropping */
+    object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
+    clip-path: inset(0 0 20% 0); /* Visually crops 20% off the bottom */
+    margin-bottom: -20%; /* Pulls up layout space so container wraps snugly around the crop */
 }
 
 .profile-image-container:hover .profile-image {
