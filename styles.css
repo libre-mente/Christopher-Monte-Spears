@@ -469,3 +469,77 @@ body {
         margin-bottom: 20px;
     }
 }
+/* --- Social Links Module Styling (Optimized Sidebar Section) --- */
+.social-links-sidebar {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid var(--accent-purple);
+}
+
+.social-links-sidebar h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.social-icon-grid {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+}
+
+.social-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--bg-module);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.social-icon-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* --- Brand Specific Hover States --- */
+.social-icon-btn.yt:hover {
+    color: #ff0000;
+    border-color: rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
+}
+
+.social-icon-btn.fb:hover {
+    color: #1877f2;
+    border-color: rgba(24, 119, 242, 0.4);
+    box-shadow: 0 0 12px rgba(24, 119, 242, 0.3);
+}
+
+.social-icon-btn.ig:hover {
+    color: #e1306c;
+    border-color: rgba(225, 48, 108, 0.4);
+    box-shadow: 0 0 12px rgba(225, 48, 108, 0.3);
+}
+
+/* Bounce effect on icon hover */
+.social-icon-btn:hover svg {
+    transform: scale(1.15);
+}
+
+/* Ensure easy alignment on mobile screens */
+@media (max-width: 900px) {
+    .social-links-sidebar {
+        text-align: center;
+    }
+    .social-icon-grid {
+        justify-content: center;
+    }
+}
