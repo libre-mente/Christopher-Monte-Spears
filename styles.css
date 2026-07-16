@@ -109,32 +109,29 @@ body {
 
 /* 
    RECONSTRUCTED: Profile Image Container
-   Made with Flexbox properties. It now acts as an auto-sizing viewport 
-   that fully encloses the image without strict cropped-height parameters.
+   We place a height on this container and set the image to fill it. 
+   By hiding the overflow and positioning the image at the top, 
+   the bottom 20% is naturally cut off by the container's border.
 */
 .profile-image-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Aligned to the top to keep the focal point of the crop correct */
+    position: relative;
     width: 100%;
     max-width: 240px; 
-    height: auto; 
+    aspect-ratio: 1 / 1; /* Sets a perfect square shape (cutting off the bottom of portrait photos) */
     margin: 0 auto 25px auto;
     border: 1px solid rgba(212, 175, 55, 0.2);
     border-radius: 6px;
-    position: relative;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
 }
 
 .profile-image {
     width: 100%;
-    height: auto;
+    height: 125%; /* Expanded so that the 20% cut-off matches original proportion scale */
     object-fit: cover;
+    object-position: top center; /* Ensures the head/face is prioritized at the top */
     display: block;
     transition: transform 0.5s ease;
-    clip-path: inset(0 0 20% 0); /* Visually crops 20% off the bottom */
-    margin-bottom: -20%; /* Pulls up layout space so container wraps snugly around the crop */
 }
 
 .profile-image-container:hover .profile-image {
